@@ -3,7 +3,7 @@ name: Publish
 on:
   push:
     branches:
-      - main
+      - develop
 
 permissions: {}
 
@@ -68,8 +68,8 @@ jobs:
         uses: changesets/action/version@v2
         with:
           script: npx changeset version
-          commit-message: '[ci] release development version'
-          pr-title: '[ci] release development version'
+          commit-message: '[ci] release (${{ github.ref_name }})'
+          pr-title: '[ci] release (${{ github.ref_name }})'
           push-with-git-cli: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
